@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tema</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Ingresar un Tema</h1>
+  <ion-card>
+
+    <form  [formGroup]="formulario" (ngSubmit)="guardarImagen()">
+      <ion-item>
+        <ion-label>Titulo del Tema</ion-label>
+        <ion-input formControlName="titulo"></ion-input>
+        <ion-note color="danger" slot="error"
+        *ngIf="campo('titulo').invalid  && campo('titulo').errors && campo('titulo').errors.required  ">
+        El campo es Requerido
+      </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Autor</ion-label>
+        <ion-input formControlName="autor"></ion-input>
+        <ion-note color="danger" slot="error"
+        *ngIf="campo('autor').invalid  && campo('autor').errors && campo('autor').errors.required  ">
+        El campo es Requerido
+      </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Imagen</ion-label>
+        <ion-input formControlName="imagen" type="file" (change)="subirImagen($event)"></ion-input>
+        <ion-note color="danger" slot="error"
+        *ngIf="campo('imagen').invalid  && campo('imagen').errors && campo('imagen').errors.required  ">
+        El campo es Requerido
+      </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Descripción</ion-label>
+        <ion-input formControlName="descripcion"></ion-input>
+        <ion-note color="danger" slot="error"
+        *ngIf="campo('descripcion').invalid  && campo('descripcion').errors && campo('descripcion').errors.required  ">
+        El campo es Requerido
+      </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-button
+          [disabled]="formulario.invalid || imagenCargando"
+        role="submit" type="submit">
+          Guardar
+        </ion-button>
+      </ion-item>
+    </form>
+  </ion-card>
+</ion-content>
