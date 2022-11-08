@@ -34,6 +34,13 @@ export class ComentarPage implements OnInit {
       })
   }
 
+  handleRefresh(event) {
+    setTimeout(() => {
+      this.comentApi.ObtenerComentario()
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  };
   public traerComentario(){
 
   }

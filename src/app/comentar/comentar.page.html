@@ -9,6 +9,12 @@
 <ion-content [scrollEvents]="true" (ionScrollStart)="handleScrollStart()" (ionScroll)="handleScroll($any($event))"
   (ionScrollEnd)="handleScrollEnd()" class="ion-padding">
 
+
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+
   <ion-card *ngFor="let a of temas">
 
     <ion-card-title>{{a.titulo}}</ion-card-title>
